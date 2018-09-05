@@ -4,6 +4,8 @@ import { getMetricMetaInfo, timeToString } from '../utils/helpers'
 import FitnessSlider from './FitnessSlider'
 import FitnessSteppers from './FitnessSteppers'
 import DateHeader from './DateHeader'
+import { Ionicons } from '@expo/vector-icons'
+import TextButton from './TextButton'
 
 function SubmitBtn({ onPress }) {
   return (
@@ -29,6 +31,12 @@ export default class AddEntry extends Component {
     // Navigate to home
     // Save to "DB"
     // Clear local notification
+  }
+  reset = () => {
+    const key = timeToString()
+    // Update Redux
+    // Route to Home
+    // Update "DB"
   }
   increment = metric => {
     const { max, step } = getMetricMetaInfo(metric)
@@ -59,6 +67,16 @@ export default class AddEntry extends Component {
   }
   render() {
     const metaInfo = getMetricMetaInfo()
+
+    if (this.props.alreadyLogged) {
+      return (
+        <View>
+          <Ionicons name={'ios-happy-outline'} size={100} />
+          <Text>You already logged your information for today.</Text>
+          <TextButton onPress={this.reset}>Reset</TextButton>
+        </View>
+      )
+    }
 
     return (
       <View>
