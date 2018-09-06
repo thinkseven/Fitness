@@ -28,3 +28,8 @@
 - watchman watch-del-all
 - npm start -- --start-cache
 - npm run android -- --start-cache
+
+## Permission to executor shell script in Mac/Linux
+
+- chmod u+x ./shell/emulator.sh
+- chmod u+x ./shell/start.sh
