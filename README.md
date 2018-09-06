@@ -28,8 +28,17 @@
 - watchman watch-del-all
 - npm start -- --start-cache
 - npm run android -- --start-cache
+- adb kill-server
+- adb devices
 
 ## Permission to executor shell script in Mac/Linux
 
 - chmod u+x ./shell/emulator.sh
 - chmod u+x ./shell/start.sh
+
+## ~/.bash_profile update
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools

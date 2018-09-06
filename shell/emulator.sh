@@ -1,16 +1,15 @@
-echo -e "\e[33mcleaning up..."
-echo -e "\e[0m"
-adb kill-server
+# Reset
+Color_Off='\033[0m'       # Text Reset
+# Regular Colors
+Yellow='\033[0;33m'       # Yellow
+echo -e "${Yellow}cleaning up...${Color_Off}"
 adb devices
-echo -e "\e[33mFound the below configured android emulators."
-echo "If below list is empty, please configure it using Android Studio/AVD Manager"
-echo -e "\e[0m"
-$ANDROID_HOME\\emulator\\emulator -list-avds
+echo -e "${Yellow}Found the below configured android emulators.${Color_Off}"
+echo -e "${Yellow}If below list is empty, please configure it using Android Studio/AVD Manager${Color_Off}"
+$ANDROID_HOME\/emulator\/emulator -list-avds
 echo
-echo -e "\e[33mPlease type the emulator name and press enter: " 
-echo -e "\e[0m"
+echo -e "${Yellow}Please type the emulator name and press enter: ${Color_Off}"
 read avd
 echo
-echo -e "\e[33mStarting the emulator.."
-echo -e "\e[0m"
-$ANDROID_HOME\\emulator\\emulator -avd $avd
+echo -e "${Yellow}Starting the emulator..${Color_Off}"
+$ANDROID_HOME\/emulator\/emulator -avd $avd
