@@ -22,7 +22,7 @@
 - Android (Ctrl+M)
 - adb shell input keyevent 82
 
-## Troubleshooting commands
+## Troubleshooting and Fix commands
 
 - run react-devtools
 - watchman watch-del-all
@@ -36,9 +36,10 @@
 - chmod u+x ./shell/emulator.sh
 - chmod u+x ./shell/start.sh
 
-## ~/.bash_profile update
+## Environment Variatables for Android
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+- ~/.bash_profile or ~/.zshrc update
+  - export ANDROID_HOME=$HOME/Library/Android/sdk
+  - export PATH=$PATH:$ANDROID_HOME/tools
+  - export PATH=$PATH:$ANDROID_HOME/tools/bin
+  - export PATH=$PATH:$ANDROID_HOME/platform-tools
