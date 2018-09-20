@@ -10,6 +10,8 @@ import {
   getMetricMetaInfo,
   timeToString,
   getDailyReminderValue,
+  clearLocalNotification,
+  setLocalNotification,
 } from '../utils/helpers'
 import FitnessSlider from './FitnessSlider'
 import FitnessSteppers from './FitnessSteppers'
@@ -28,8 +30,7 @@ function SubmitBtn({ onPress }) {
       style={
         Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.AndroidSubmitBtn
       }
-      onPress={onPress}
-    >
+      onPress={onPress}>
       <Text style={styles.submitBtnText}>SUBMIT</Text>
     </TouchableOpacity>
   )
@@ -57,6 +58,7 @@ class AddEntry extends Component {
     // Save to "DB"
     submitEntry({ key, entry })
     // Clear local notification
+    clearLocalNotification().then(setLocalNotification)
   }
   reset = () => {
     const key = timeToString()
