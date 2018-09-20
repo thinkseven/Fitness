@@ -11,6 +11,8 @@
 - Android Studio/SDK
 - Watchman
 - XCode
+- HAX is working and emulator runs in fast virt mode.  
+  https://software.intel.com/en-us/articles/intel-hardware-accelerated-execution-manager-intel-haxm
 
 ## Simulator Commands (MacOS)
 
