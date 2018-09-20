@@ -13,6 +13,7 @@ import { purple, white } from './utils/colors'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { Constants } from 'expo'
 import EntryDetail from './components/EntryDetail'
+import Live from './components/Live'
 
 function UdaciStatusBar({ backgroundColor, ...props }) {
   return (
@@ -26,6 +27,7 @@ const Tabs = createBottomTabNavigator(
   {
     History: History,
     AddEntry: AddEntry,
+    Live: Live,
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -33,11 +35,13 @@ const Tabs = createBottomTabNavigator(
         const { routeName } = navigation.state
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return routeName === 'History' ? (
-          <Ionicons name="ios-bookmarks" size={30} color={tintColor} />
-        ) : (
-          <FontAwesome name="plus-square" size={30} color={tintColor} />
-        )
+        if (routeName === 'History') {
+          return <Ionicons name="ios-bookmarks" size={30} color={tintColor} />
+        } else if (routeName === 'AddEntry') {
+          return <FontAwesome name="plus-square" size={30} color={tintColor} />
+        } else {
+          return <Ionicons name="ios-speedometer" size={30} color={tintColor} />
+        }
       },
     }),
     tabBarOptions: {
